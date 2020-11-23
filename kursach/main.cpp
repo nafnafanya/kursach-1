@@ -24,7 +24,5 @@ std::string readFilePlayerLevel(){
 
 
 int main() {
-    savePlayerLevelInFile(345345);
-    std::cout<<readFilePlayerLevel();
     return 0;
 }
