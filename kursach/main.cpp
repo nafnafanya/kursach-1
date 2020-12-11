@@ -31,8 +31,14 @@ void print(char *str) {
     }
 }
 
+struct story_point {
+    int number;
+    char text;
+};
+
 int main() {
     return 0;
 
 }
+
 
