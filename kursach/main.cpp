@@ -1,9 +1,6 @@
 class hero 
 {
-private: 
-    int good = 0;
-    int bad = 0;
-    
+public:
     void plusGood()
     {
         good += 1;
@@ -20,5 +17,9 @@ private:
     {
         return bad;
     }
+private: 
+    int good = 0;
+    int bad = 0;
+    
 };
 
