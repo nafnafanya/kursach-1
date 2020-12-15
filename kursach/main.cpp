@@ -25,9 +25,18 @@ public:
     {
         return bad;
     }
+    void plusLevel()
+    {
+        level += 1;
+    }
+    int get_level()
+    {
+        return level;
+    }
 private: 
     int good = 0;
     int bad = 0;
+    int level =0;
     
 };
 
