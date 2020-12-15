@@ -5,6 +5,7 @@
 #include <string>
 
 struct story_point;
+void print(char *str);
   
 class hero 
 {
@@ -48,14 +49,6 @@ void savePlayerLevelInFile(int level) {
     fs.close();
 }
 
-void print(char *str) {
-    setlocale(0, "Russian");
-    for (int i = 0; i < strlen(str) ; i++) {
-        std:: cout << str[i];
-        Sleep(80);
-    }
-}
-
 std::string readFilePlayerLevel() {
     std::string level;
     const std::string file_name = "player_level.txt";
@@ -75,5 +68,13 @@ struct story_point {
     int number;
     char text [ ];
 };
+
+void print(char *str) {
+    setlocale(0, "Russian");
+    for (int i = 0; i < strlen(str) ; i++) {
+        std:: cout << str[i];
+        Sleep(80);
+    }
+}
 
 
