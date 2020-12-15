@@ -4,7 +4,6 @@
 #include <fstream>
 #include <string>
 
-void print(char *str);
 struct story_point;
   
 class hero 
@@ -40,6 +39,13 @@ void savePlayerLevelInFile(int level) {
     fs.close();
 }
 
+void print(char *str) {
+    setlocale(0, "Russian");
+    for (int i = 0; i < strlen(str) ; i++) {
+        std:: cout << str[i];
+        Sleep(80);
+    }
+}
 
 std::string readFilePlayerLevel() {
     std::string level;
@@ -54,14 +60,6 @@ std::string readFilePlayerLevel() {
 int main() {
     return 0;
 
-}
-
-void print(char *str) {
-    setlocale(0, "Russian");
-    for (int i = 0; i < strlen(str) ; i++) {
-        std:: cout << str[i];
-        Sleep(80);
-    }
 }
 
 struct story_point {
