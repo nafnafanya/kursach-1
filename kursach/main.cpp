@@ -3,7 +3,9 @@
 #include <Windows.h>
 #include <fstream>
 #include <string>
-  
+
+void print(char *str);
+struct story_point;
   
 class hero 
 {
@@ -49,6 +51,11 @@ std::string readFilePlayerLevel() {
     return level;
 }
 
+int main() {
+    return 0;
+
+}
+
 void print(char *str) {
     setlocale(0, "Russian");
     for (int i = 0; i < strlen(str) ; i++) {
@@ -61,10 +68,5 @@ struct story_point {
     int number;
     char text [ ];
 };
-
-int main() {
-    return 0;
-
-}
 
 
