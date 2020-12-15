@@ -59,7 +59,7 @@ void print(char *str) {
 
 struct story_point {
     int number;
-    char text;
+    char text [ ];
 };
 
 int main() {
