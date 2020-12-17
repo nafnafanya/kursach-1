@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 
-
+void print(char *str); 
 class hero
 {
 public:
@@ -93,9 +93,12 @@ struct story_point {
 };
 
 int main() {
-hero Katya;
-Katya.plusLevel();
-std::cout<<Katya.get_level();
     return 0;
-
+}
+void print(char *str) {
+    setlocale(0, "Russian");
+    for (int i = 0; i < strlen(str) ; i++) {
+        std:: cout << str[i];
+        Sleep(80);
+    }
 }
