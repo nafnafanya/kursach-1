@@ -4,6 +4,8 @@
 #include <string>
 
 void print(char *str);
+int input();
+
 class hero
 {
 public:
@@ -89,6 +91,31 @@ struct story_point {
 int main() {
     return 0;
 }
+
+int input()
+{
+    setlocale(LC_ALL, "Russian");
+    int a;
+
+    do
+    {
+        while (!(std::cin >> a))
+        {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            print("Вы должны ввести число 1 или 2.");
+        }
+        if (a != 1 && a != 2)
+        {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            print("Вы должны ввести число 1 или 2.");
+        }
+
+    } while (a != 1 && a != 2);
+    return a;
+}
+
 void print(char *str) {
     setlocale(0, "Russian");
     for (int i = 0; i < strlen(str) ; i++) {
