@@ -1,12 +1,15 @@
-
 #include <iostream>
+#include <Windows.h>
 #include <fstream>
 #include <string>
-  
-  
-class hero 
+
+void print(char *str);
+class hero
 {
 public:
+    hero(){
+        set_level(readFilePlayerLevel());
+    }
     void plusGood()
     {
         good += 1;
@@ -23,55 +26,73 @@ public:
     {
         return bad;
     }
-private: 
+    void plusLevel()
+    {
+        level += 1;
+        savePlayerLevelInFile(level);
+
+    }
+    void set_level(int level){
+        this->level=level;
+    }
+    int get_level()
+    {
+        return level;
+    }
+private:
+    int ten_degree(int degree){
+        int value = 1;
+        for(int i = 0;i<degree;i++){
+            value*=10;
+        }
+        return value;
+    }
+
+    int string_to_int(std::string level_string){
+        int level_int = 0;
+        int length = level_string.length();
+        for (int i=length, degree=0;i>0;i--,degree++){
+            level_int+=(level_string[i-1]-48)*ten_degree(degree);
+        }
+        return level_int;
+    }
+    int readFilePlayerLevel() {
+        std::string level;
+        const std::string file_name = "player_level.txt";
+        std::ifstream  fs;
+        fs.open(file_name);
+        fs >> level;
+        fs.close();
+
+        return string_to_int(level);
+    }
+
+    void savePlayerLevelInFile(int level) {
+        const std::string file_name = "player_level.txt";
+        std::ofstream fs;
+        fs.open(file_name);
+        fs << level;
+        fs.close();
+    }
     int good = 0;
     int bad = 0;
-    
+    int level = 0;
 };
 
-int input()
-{
-    setlocale(LC_ALL, "Russian");
-    int a;
-    std::cin.clear();
-    do
-    {
-        while (!(std::cin >> a))
-        {
-            std::cin.clear();
-            std::cin.ignore();
-            std::cout << "Вы должны ввести число 1 или 2." << std::endl;
-        }
-        if (a != 1 && a != 2)
-        {
-            std::cin.clear();
-            std::cin.ignore();
-            std::cout << "Вы должны ввести число 1 или 2." << std::endl;
-        }
 
-    } while (a != 1 && a != 2);
-    return a;
+
+struct story_point {
+    int number;
+    char text [ ];
 };
-void savePlayerLevelInFile( int level){
-    const std::string file_name = "player_level.txt";
-    std::ofstream fs;
-    fs.open(file_name);
-    fs << level;
-    fs.close();
-}
-
-
-std::string readFilePlayerLevel(){
-    std::string level;
-    const std::string file_name = "player_level.txt";
-    std::ifstream  fs;
-    fs.open(file_name);
-    fs >> level;
-    fs.close();
-    return level;
-}
-
 
 int main() {
     return 0;
+}
+void print(char *str) {
+    setlocale(0, "Russian");
+    for (int i = 0; i < strlen(str) ; i++) {
+        std:: cout << str[i];
+        Sleep(80);
+    }
 }
