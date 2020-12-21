@@ -4,6 +4,7 @@
 #include <string>
 
 void print(char *str);
+void print(std::string str);
 int input();
 
 class hero
@@ -119,6 +120,13 @@ int input()
 void print(char *str) {
     setlocale(0, "Russian");
     for (int i = 0; i < strlen(str) ; i++) {
+        std:: cout << str[i];
+        Sleep(80);
+    }
+}
+void print(std::string str) {
+    setlocale(0, "Russian");
+    for (int i = 0; i < str.length(); i++) {
         std:: cout << str[i];
         Sleep(80);
     }
