@@ -87,9 +87,9 @@ private:
 
 class story_point {
 public:
-    int number = 0;
+    int number = 1;
     char text[5000] = {};
-    void set_story_from_file(int number) {
+     void set_story_from_file(int number) {
 
         char ch_number1 = (48 + number);
         std::stringstream compare1;
@@ -112,18 +112,18 @@ public:
         if (in) {
             memset(&text, 0, 5000);
             bool in_story = false;
-            while (!in.eof()){
+            while (!in.eof()) {
                 char buffer[100] = {};
                 in.getline(buffer, 1000);
-                if(in_story && strcmp(buffer,info2)){
-                    strcat(text,buffer);
-                    strcat(text,"\n");
+                if (in_story && strcmp(buffer, info2)) {
+                    strcat_s(text, buffer);
+                    strcat_s(text, "\n");
                 }
-                if(in_story && !strcmp(buffer,info2)){
+                if (in_story && !strcmp(buffer, info2)) {
                     break;
                 }
-                if(!strcmp(buffer,info1)){
-                    in_story=true;
+                if (!strcmp(buffer, info1)) {
+                    in_story = true;
                 }
 
 
@@ -131,13 +131,22 @@ public:
         }
         in.close();
     }
+     void set_story(int input_number) {
+         number = input_number;
+         set_story_from_file(input_number);
+     }
+     void next_point() {
+         number+= 1;
+         set_story(number);
+     }
 };
 
 int main() {
-    setlocale(0, "Russian");
     story_point point;
-    point.set_story_from_file(2);
-    std::cout<<(point.text);
+    point.set_story(2);
+    print (point.text);
+    point.next_point();
+    print(point.text);
     system("pause");
     return 0;
 }
