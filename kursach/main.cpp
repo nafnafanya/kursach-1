@@ -3,93 +3,95 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-
+int story_amount=9;
 void print(char* str);
 void print(std::string str);
 int input();
+void hello();
 
 class hero
 {
 public:
     hero() {
-        set_level(readFilePlayerLevel());
+        set_level(readLevel());
     }
-    void plusGood()
-    {
-        good += 1;
+    void answerProcessing(int answer){
+        if(answer==1){
+            plusKarma();
+        }
     }
-    int get_good()
+    void plusKarma()
     {
-        return good;
+        set_karma(karma+1);
     }
-    void plusBad()
-    {
-        bad += 1;
+    void set_karma(int inp_karma){
+        karma=inp_karma;
+        saveKarma();
     }
-    int get_bad()
+    int get_karma()
     {
-        return bad;
+        return karma;
     }
     void plusLevel()
     {
         level += 1;
-        savePlayerLevelInFile(level);
+        saveLevel();
 
     }
     void set_level(int level) {
         this->level = level;
+        saveLevel();
     }
     int get_level()
     {
         return level;
     }
 private:
-    int ten_degree(int degree) {
-        int value = 1;
-        for (int i = 0; i < degree; i++) {
-            value *= 10;
-        }
-        return value;
-    }
+    int karma = 0;
 
-    int string_to_int(std::string level_string) {
-        int level_int = 0;
-        int length = level_string.length();
-        for (int i = length, degree = 0; i > 0; i--, degree++) {
-            level_int += (level_string[i - 1] - 48) * ten_degree(degree);
-        }
-        return level_int;
-    }
-    int readFilePlayerLevel() {
-        std::string level;
+    int level = 0;
+
+    int readLevel() {
         const std::string file_name = "player_level.txt";
         std::ifstream  fs;
         fs.open(file_name);
         fs >> level;
         fs.close();
 
-        return string_to_int(level);
+        return level;
     }
 
-    void savePlayerLevelInFile(int level) {
+    void saveLevel() {
         const std::string file_name = "player_level.txt";
         std::ofstream fs;
         fs.open(file_name);
         fs << level;
         fs.close();
     }
-    int good = 0;
-    int bad = 0;
-    int level = 0;
+    int readKarma() {
+        const std::string file_name = "player_karma.txt";
+        std::ifstream  fs;
+        fs.open(file_name);
+        fs >> karma;
+        fs.close();
+        return karma;
+    }
+
+    void saveKarma() {
+        const std::string file_name = "player_karma.txt";
+        std::ofstream fs;
+        fs.open(file_name);
+        fs << karma;
+        fs.close();
+    }
 };
 
 
 
 class story_point {
-public:
     int number = 1;
     char text[5000] = {};
-     void set_story_from_file(int number) {
+    void set_story_from_file(int number) {
 
         char ch_number1 = (48 + number);
         std::stringstream compare1;
@@ -113,7 +115,7 @@ public:
             memset(&text, 0, 5000);
             bool in_story = false;
             while (!in.eof()) {
-                char buffer[100] = {};
+                char buffer[1000] = {};
                 in.getline(buffer, 1000);
                 if (in_story && strcmp(buffer, info2)) {
                     strcat_s(text, buffer);
@@ -131,49 +133,82 @@ public:
         }
         in.close();
     }
+public:
+    int get_number(){
+        return number;
+    }
      void set_story(int input_number) {
          number = input_number;
          set_story_from_file(input_number);
      }
+
+     void set_ending(int ending_number){
+
+
+        char ch_ending_number = (48 + ending_number);
+        std::stringstream compare;
+        compare << "ending" << ch_ending_number<<".txt";
+        char file_name[20] = {};
+        compare >> file_name;
+        std::ifstream in;
+        in.open(file_name);
+        while (!in.eof()) {
+             char buffer[1000] = {};
+             in.getline(buffer, 500);
+                 strcat_s(text, buffer);
+                 strcat_s(text, "\n");
+         }
+
+    in.close();
+    number=1;
+}
+
      void next_point() {
          number+= 1;
          set_story(number);
      }
+    void print(){
+        ::print(text);
+
+    }
+private:
+
+
+
 };
+void dialog(){
 
-int main() {
-    story_point point;
-    point.set_story(2);
-    print (point.text);
-    point.next_point();
-    print(point.text);
-    system("pause");
-    return 0;
+    hero hero{};
+    story_point storyPoint{};
+
+    while(1) {
+
+        while (storyPoint.get_number() <= story_amount) {
+            storyPoint.set_story(hero.get_level());
+            storyPoint.print();
+            int answer = input();
+            hero.answerProcessing(answer);
+            hero.plusLevel();
+            storyPoint.next_point();
+            }
+        if (2 * hero.get_karma() > story_amount) {
+            hero.set_level(1);
+            hero.set_karma(0);
+            storyPoint.set_ending(1);
+            storyPoint.print();
+            return;
+        } else {
+            hero.set_karma(0);//because story says that
+            hero.set_level(1);//because story says that
+            storyPoint.set_ending(2);//because story says that
+            storyPoint.print();
+        }
+    }
 }
-
-
-int input()
-{
-    setlocale(LC_ALL, "Russian");
-    int a;
-
-    do
-    {
-        while (!(std::cin >> a))
-        {
-            std::cin.clear();
-            std::cin.ignore(1000, '\n');
-            print("Вы должны ввести число 1 или 2.");
-        }
-        if (a != 1 && a != 2)
-        {
-            std::cin.clear();
-            std::cin.ignore(1000, '\n');
-            print("Вы должны ввести число 1 или 2.");
-        }
-
-    } while (a != 1 && a != 2);
-    return a;
+int main() {
+    hello();
+    dialog();
+    return 1;
 }
 
 void print(char* str) {
@@ -181,11 +216,40 @@ void print(char* str) {
         std::cout << str[i];
         Sleep(80);
     }
+    std::cout<<std::endl;
 }
 void print(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         std::cout << str[i];
         Sleep(80);
     }
+    std::cout<<std::endl;
+
 }
 
+int input()
+{
+    int a;
+    while(!(std::cin>>a)){
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+        print("You should type 1 or 2.");
+        print("\n");
+
+    }
+    if(a != 1 && a != 2){
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+        print("You should type 1 or 2.");
+        print("\n");
+        input();
+    }
+
+    return a;
+}
+void hello(){
+    print("Hi! Welcome to this game! =)");
+    print("Get ready to feel all that feels hero of this story.");
+    print("\n");
+    Sleep(1000);
+}
