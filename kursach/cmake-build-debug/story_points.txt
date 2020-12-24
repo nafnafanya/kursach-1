@@ -1,7 +1,38 @@
 <1>
-one
+You find yourself in an unknown city. You are surrounded by
+dull buildings and strangers.
+Uncertainty frightens you. Filled with feeling of
+missunderstanding, you, knowing nothing about how to exist
+here, set off to find any answers. Suddenly, something 
+touches your leg.
+You, startled with suddenness, look down. A small, skinny
+cat, as lost in this world as you, looks at you with  eyes
+full of fear.
+Something scares the cat off, and he runs away with no
+turning around.
+Realizing that it is the only creature that recognized your
+presence, you ask yourself a question:
+Should I run after him?
+Press 1 to run after him.
+Press 2 to go further.
 <2>
-two
+The cat eventually got away from your sight.
+You continue walking down the gloomy street.
+You search alleys and prospects, seeking for something
+familiar.
+You try to find anyone who will pay attention to you.
+Far away there is a silhoutte of THE running cat.
+This time you have no doubt that you need to follow it.
+Finally, you caught up with the cat.
+The cat meows loudly and looks at the left.
+You see a scary dark creature resembling a human. 
+He falls on his knees in front you and streches his bony arm
+towards you.
+You understand that this human needs help, but his face
+scares you off with its' ugliness. 
+Should you give him a hand?
+Press 1 to help.
+Press 2 to ignore.
 <3>
 three
 <4>
@@ -11,8 +42,66 @@ five
 <6>
 six
 <7>
-seven
+Suddenly, someone pushes you from the back.
+You feel chilling cold and you realize that you're under the
+water. 
+Now you don't really have a choice. 
+You need to rescue the girl.
+You get sure that the girl is safe now.
+Drenched and chilled from freezing water you set off in hope
+to find any dry clothes. 
+You are still following the mysterious cat.
+All of a sudden, a car appeares from the corner.
+It drives past quickly and to your horror follows the cat.
+You understand that the cat won't survive this "encounter".
+You need to decide fast whether you save the cat or submit 
+to your fear.
+Press 1 to save the cat.
+Press 2 to stay away.
 <8>
-eight
+You close your eyes out of fear.
+After few seconds you open you open your eyes and see an
+evaporating haze and the car leaving the street.
+You realize that this is not the real cat, it's just an 
+illusion and you feel like this about everything un this
+city.
+You notice the cat walking near you.
+Afar you see a column of streaming smoke, and, of course,
+the cat heads in this direction.
+Coming closer to the smoke, you understand that there is 
+a fire.
+You hear terrifying screams coming out of the burning
+building.
+Though the fire isn't that big, people are trapped and
+can't see how to make thier way out.
+However, you see the way out of the building free from the
+flames.
+You can help the people but the smoke will probably affect
+your weak lungs.
+There is a chance that you won't be able complete your 
+journey.
+Should you help the people?
+Press 1 to help.
+Press 2 to stay aside.
 <9>
-nine
+You hear a loud overwhelming sound.
+You can't see nothing, you can't even open your eyes.
+It is an exposion of the burning building.
+You think you are dead, you feel that you are dead.
+You can't move any of your limb.
+Your ears catch the familiar meow.
+You aren't dead but at this point you don't even feel slight
+happiness from your survival.
+"You journey is almost over. You need to make your last 
+choice. I hope, you won't let me down", the mysterious voice 
+filling all the space around almost deafens you.
+"To escape this place you need to make a sacrifice and kill
+the only kind spirit in this city".
+You immediately understand that the voice is talking about
+your small companion.
+"You don't have any time left! You must choose now!",
+echoing from all surfaces the loud voice reaches you.
+What should you do?
+Press 1 to save the cat.
+Press 2 to kill the cat.
+
