@@ -3,8 +3,8 @@ You find yourself in an unknown city. You are surrounded by
 dull buildings and strangers.
 Uncertainty frightens you. Filled with feeling of
 missunderstanding, you, knowing nothing about how to exist
-here, set off to find any answers. Suddenly, something 
-touches your leg.
+here, set off to find any answers. Suddenly, something is
+touching  your leg.
 You, startled with suddenness, look down. A small, skinny
 cat, as lost in this world as you, looks at you with  eyes
 full of fear.
@@ -86,9 +86,8 @@ you.
 You take him in your arms and promising yourself to be with
 it under any circumstances. You are standing in the square
 holding a cat in your hands. People are walking around,
-everyone is making noise around.
-But, among all the voices, you distinguish a clear
-children's voice.
+everyone is making noise around. But, among all the voices,
+you distinguish a clear girl children's voice.
 -Give me your cat, please.
 You are standing with your, most likely, your only companion
 in your hands and somebody wants to take him away from you.
@@ -98,9 +97,59 @@ yourself, leaving a mark on the child's life forever?
 Press 1 to give cat to child.
 Press 2 to keep it.
 <5>
-five
+It was hard choise, but you dit it.
+Now you want show cat to girl, because she looked hard on
+it.You put the cat down to show it, but it scratched the 
+girl in the face! Drops of blood runing down her cheek,
+and she goes slowly without tears into the crowd.
+you keep walking across the square. People let you go ahead,
+but they don't even look at you, as if they are doing it
+without realizing.Strange feelings visit you. You feel that
+nothing good awaits you on this square. You turn off the
+road into some narrow alley. The houses were so close and
+the front opening seemed very narrow. So narrow that you
+thought it was hundreds of meters to go to it, but no, after
+passing the doorway, you go to a construction site in the
+middle of the yard. 
+how did you get sick. endless wanderings, strange events,
+strange people around. What's going on ... A dog runs in
+front of you. You already doubt that all this is really
+happening. But you're angry. It seems that if you don’t do
+something now, you will completely immerse yourself
+in suffering.
+Press 1 to keep going without hurting anything.
+Press 2 to kick the dog and rid yourself of negative.
+emotions.
 <6>
-six
+As soon as you made a small move, the dog ran away. 
+You decide to remember the cat. He was still in his arms and
+pressed against you in fear. You were surrounded by houses
+and you could no longer understand where you came from.
+A pleasant yellow light was coming from the windows, and
+people were visible. Everyone is doing something different.
+Swings creak on the playground, but there was no wind.
+Yes, it's strange, but after everything that happened,
+nothing scares you. You decided to go see. The swing creaked
+and you saw footprints. They led to the construction site.
+You follow the footsteps, not knowing where, why ...
+There was some kind of equipment at the construction site,
+the yellow light from the windows still reaches here.
+The tracks are becoming more distinct. Finally you
+you come to some old houses, the light from which is still
+the samу pleasant yellow.The cat meowed several times in the
+direction of a pit. You come closer. There is water in the 
+pit. It was not clear what was happening and you decide to
+turn around and leave. But suddenly, there is some movement
+in the water! You look closely and notice a body there. For
+a second, the face pops up and you recognize that child from
+area. She then drowned, then floated to breathe air. She
+waving her arms and twitching helplessly in the water.
+Out of the corner of your eye you notice a man with a
+frightening face, similar to the one with a knife.
+But this is just a guess and now you are thinking about 
+whether to risk saving the girl.
+Press 1 to risk to jump in water and try to save girl.
+Press 2 to get out of there.
 <7>
 Suddenly, someone pushes you from the back.
 You feel chilling cold and you realize that you're under the
@@ -164,4 +213,3 @@ echoing from all surfaces the loud voice reaches you.
 What should you do?
 Press 1 to save the cat.
 Press 2 to kill the cat.
-
