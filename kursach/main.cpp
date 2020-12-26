@@ -91,7 +91,7 @@ private:
 class story_point {
     int number = 1;
     char text[5000] = {};
-    void set_story_from_file(int number) { //"<52>"
+    void set_story_from_file(int number) { 
         char ch_number1 = (48 + number);
         std::stringstream compare1;
         compare1 << "<" << ch_number1 << ">";
