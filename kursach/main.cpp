@@ -91,23 +91,19 @@ private:
 class story_point {
     int number = 1;
     char text[5000] = {};
-    void set_story_from_file(int number) {
-
+    void set_story_from_file(int number) { //"<52>"
         char ch_number1 = (48 + number);
         std::stringstream compare1;
         compare1 << "<" << ch_number1 << ">";
         char info1[10] = {};
-        compare1 >> info1;
+        compare1 >> info1; //<number>
 
 
         char ch_number2 = (48 + number + 1);
         std::stringstream compare2;
         compare2 << "<" << ch_number2 << ">";
         char info2[10] = {};
-        compare2 >> info2;
-
-
-
+        compare2 >> info2;//<number+1> <10>
 
         std::ifstream in;
         in.open("story_points.txt");
@@ -115,8 +111,10 @@ class story_point {
             memset(&text, 0, 5000);
             bool in_story = false;
             while (!in.eof()) {
+
                 char buffer[1000] = {};
                 in.getline(buffer, 1000);
+
                 if (in_story && strcmp(buffer, info2)) {
                     strcat_s(text, buffer);
                     strcat_s(text, "\n");
@@ -127,8 +125,6 @@ class story_point {
                 if (!strcmp(buffer, info1)) {
                     in_story = true;
                 }
-
-
             }
         }
         in.close();
@@ -137,12 +133,12 @@ public:
     int get_number(){
         return number;
     }
-     void set_story(int input_number) {
-         number = input_number;
-         set_story_from_file(input_number);
-     }
+    void set_story(int input_number) {
+        number = input_number;
+        set_story_from_file(input_number);
+    }
 
-     void set_ending(int ending_number){
+    void set_ending(int ending_number){
 
 
         char ch_ending_number = (48 + ending_number);
@@ -153,22 +149,22 @@ public:
         std::ifstream in;
         in.open(file_name);
         while (!in.eof()) {
-             char buffer[1000] = {};
-             in.getline(buffer, 500);
-                 strcat_s(text, buffer);
-                 strcat_s(text, "\n");
-         }
+            char buffer[1000] = {};
+            in.getline(buffer, 500);
+            strcat_s(text, buffer);
+            strcat_s(text, "\n");
+        }
 
-    in.close();
-    number=1;
-}
+        in.close();
+        number=1;
+    }
 
-     void next_point() {
-         number+= 1;
-         set_story(number);
-     }
+    void next_point() {
+        number+= 1;
+        set_story(number);
+    }
     void print(){
-        ::print(text);
+        ::print((const char *)text);
 
     }
 private:
@@ -187,10 +183,13 @@ void dialog(){
             storyPoint.set_story(hero.get_level());
             storyPoint.print();
             int answer = input();
+            if (answer==0){
+                return;
+            }
             hero.answerProcessing(answer);
             hero.plusLevel();
             storyPoint.next_point();
-            }
+        }
         if (2 * hero.get_karma() > story_amount) {
             hero.set_level(1);
             hero.set_karma(0);
@@ -211,14 +210,14 @@ int main() {
     return 1;
 }
 
-void print(char* str) {
+void print(const char* str) {
     for (int i = 0; i < strlen(str); i++) {
         std::cout << str[i];
         Sleep(80);
     }
     std::cout<<std::endl;
 }
-void print(std::string str) {
+void print(const std::string str) {
     for (int i = 0; i < str.length(); i++) {
         std::cout << str[i];
         Sleep(80);
@@ -229,28 +228,34 @@ void print(std::string str) {
 
 int input()
 {
-    int a;
-    while(!(std::cin>>a)){
+    char answer[10];
+    while(!(std::cin >> answer)){
         std::cin.clear();
         std::cin.ignore(1000, '\n');
-        print("You should type 1 or 2.");
-        print("\n");
+        print((const char *)"You should type 1 or 2.\n");
+
 
     }
-    if(a != 1 && a != 2){
+    if(strcmp(answer, "1") && strcmp(answer, "0") && strcmp(answer, "exit") ){
         std::cin.clear();
         std::cin.ignore(1000, '\n');
-        print("You should type 1 or 2.");
-        print("\n");
+        print((const char *)"You should type 1 or 2.\n");
         input();
     }
+    if(!strcmp(answer, "exit")){
+        return 0;
+    }
+    if(answer[0]='1') {
+        return 1;
+    }
+    if(answer[0]='2') {
+        return 2;
+    }
 
-    return a;
 }
 void hello(){
-    print("Hi! Welcome to this game! =)");
-    print("Get ready to feel all that feels hero of this story.");
-    print("\n");
+    print((const char *)"Hi! Welcome to this game! =)");
+    print((const char *)"Get ready to feel all that feels hero of this story.");
+    print((const char *)"\n");
     Sleep(1000);
 }
-
