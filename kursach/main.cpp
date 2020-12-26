@@ -94,26 +94,29 @@ int main() {
 
 int input()
 {
-    setlocale(LC_ALL, "Russian");
-    int a;
+    char answer[10];
+    while(!(std::cin >> answer)){
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+        print((const char *)"You should type 1 or 2.\n");
 
-    do
-    {
-        while (!(std::cin >> a))
-        {
-            std::cin.clear();
-            std::cin.ignore(1000, '\n');
-            print("Вы должны ввести число 1 или 2.");
-        }
-        if (a != 1 && a != 2)
-        {
-            std::cin.clear();
-            std::cin.ignore(1000, '\n');
-            print("Вы должны ввести число 1 или 2.");
-        }
 
-    } while (a != 1 && a != 2);
-    return a;
+    }
+    if(strcmp(answer, "1") && strcmp(answer, "0") && strcmp(answer, "exit") ){
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+        print((const char *)"You should type 1 or 2.\n");
+        input();
+    }
+    if(!strcmp(answer, "exit")){
+        return 0;
+    }
+    if(answer[0]='1') {
+        return 1;
+    }
+    if(answer[0]='2') {
+        return 2;
+    }
 }
 
 void print(char *str) {
