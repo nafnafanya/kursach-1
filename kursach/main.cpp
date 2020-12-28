@@ -255,7 +255,7 @@ int input()
 }
 void hello(){
     print((const char *)"Hi! Welcome to this game! =)");
-    print((const char *)"Get ready to feel all that feels hero of this story.");
+    print((const char *)"Get ready to feel all that feels hero of this story. Enter exit to exit");
     print((const char *)"\n");
     Sleep(1000);
 }
